@@ -1,0 +1,21 @@
+{
+  "name": "dra-leyza-site",
+  "version": "1.0.0",
+  "description": "Front-end Site Dra. Leyza Angélica Nieto",
+  "main": "index.js",
+  "repository": "https://github.com/TheFrost/dra-leyza-site.git",
+  "author": "TheFrost <frost084@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rm -rf dist && parcel src/*.pug --no-cache --open",
+    "build": "rm -rf public && parcel build src/*.pug --out-dir public --no-cache && node postbuild.js"
+  },
+  "devDependencies": {
+    "lodash.escaperegexp": "^4.1.2",
+    "parcel-bundler": "^1.12.3",
+    "pug": "^2.0.4",
+    "replace-in-file": "^4.1.1",
+    "sass": "^1.22.7",
+    "standard": "^13.1.0"
+  }
+}
