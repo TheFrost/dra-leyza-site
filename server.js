@@ -36,6 +36,10 @@ bundler.on('buildEnd', bundle => {
         res.sendFile(path.join(__dirname, `dist/${file}`))
       })
     })
+
+    app.use((req, res) => {
+      res.status(404).sendFile(path.join(__dirname, `dist/404.html`))
+    })
   })
 
   isFirstBuild = false
