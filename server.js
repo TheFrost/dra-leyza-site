@@ -46,6 +46,6 @@ bundler.on('buildEnd', bundle => {
 })
 
 app.use(bundler.middleware())
-app.listen(8080)
+app.listen(1234)
 
-console.log('Running at Port 3000')
+console.log('Running at Port 1234')
