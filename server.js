@@ -7,7 +7,7 @@ let isFirstBuild = true
 
 const serverDir = './dist'
 
-const bundler = new Bundler('./src/*.pug', {
+const bundler = new Bundler('./src/index.pug', {
   sourceMaps: false,
   cache: false
 })
