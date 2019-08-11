@@ -1,6 +1,18 @@
 header.header
   a.header__logo(href="#")
-    svg(width="75" height="40").svg
+    svg.svg
       use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo")
-  svg(width="141" height="26").svg.header__copy
+  svg.svg.header__copy
     use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-copy")
+  div.burger.header__burger
+    a(href="#").burger__control
+      span.burger__line
+      span.burger__line
+      span.burger__line
+  div.header__contact
+    div.header__phone
+      svg(width="17" height="17").svg.header__phone-icon
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#phone")
+      a.link(href="tel:8688134303") (868) 813-4303
+      a.link(href="tel:8688134614") (868) 813-4614
+    a.link(href="mailto:leyzanieto@hotmail.com").header__email leyzanieto@hotmail.com

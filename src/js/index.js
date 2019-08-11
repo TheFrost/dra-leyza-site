@@ -1,4 +1,12 @@
-import Module from './modules/module'
+import { isMobileDevice } from './tools/utils'
+import BurgerMenu from './modules/burgerMenu'
 
-const module = new Module()
-module.init()
+if (isMobileDevice()) {
+  // only mobile modules
+
+  const burger = new BurgerMenu()
+  burger.init()
+
+} else {
+  // only desktop modules
+}

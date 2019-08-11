@@ -1,0 +1,19 @@
+.burger {
+  &__control {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35px;
+    height: 23px;
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: $c_second;
+
+    transform-origin: center;
+  }
+}
