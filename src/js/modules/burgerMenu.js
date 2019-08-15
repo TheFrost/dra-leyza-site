@@ -1,24 +1,27 @@
-import { TimelineMax } from 'gsap'
+import { TimelineMax, TweenMax } from 'gsap'
 import { $, $$ } from '../tools/utils'
 
-export default class BurguerMenu {
+export default class BurgerMenu {
   constructor () {
     this.DOM = {
       burger: $('.header__burger'),
-      lines: $$('.header__burger .burger__line')
+      lines: $$('.header__burger .burger__line'),
+      nav: $('.nav'),
+      navLinks: $$('.nav__item a')
     }
   }
 
   init () {
-    this.setupTimeline()
+    this.setupBurger()
+    this.setupNav()
     this.bindEvents()
   }
 
-  setupTimeline () {
+  setupBurger () {
     const { lines } = this.DOM
 
-    this.timeline = new TimelineMax()
-    this.timeline
+    this.burgerTimeline = new TimelineMax()
+    this.burgerTimeline
       .to(lines[0], 0.17, {
         y: 10
       })
@@ -36,6 +39,36 @@ export default class BurguerMenu {
       .pause()
   }
 
+  setupNav () {
+    const { nav, navLinks } = this.DOM
+
+    TweenMax.set(nav, {
+      y: '-100%'
+    })
+    TweenMax.set(navLinks, {
+      opacity: 0,
+      y: 100
+    })
+
+    this.navTimeline = new TimelineMax()
+    this.navTimeline
+      .to(nav, 1, {
+        y: '0%',
+        ease: 'Expo.easeInOut'
+      })
+      .staggerTo(navLinks, 1, {
+        y: 0,
+        opacity: 1,
+        ease: 'Expo.easeInOut'
+      }, 0.05, '-=0.8')
+      .pause()
+  }
+
+  triggerTween (action) {
+    this.burgerTimeline[action]()
+    this.navTimeline[action]()
+  }
+
   bindEvents () {
     const { burger } = this.DOM
 
@@ -51,6 +84,8 @@ export default class BurguerMenu {
     burger.classList.toggle('active')
 
     const isActive = burger.classList.contains('active')
-    this.timeline[isActive ? 'play' : 'reverse']()
+    const action = isActive ? 'play' : 'reverse'
+
+    this.triggerTween(action)
   }
 }

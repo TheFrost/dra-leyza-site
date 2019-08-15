@@ -12,6 +12,7 @@
   height: calc(100vh - 66px);
 
   background-color: $c_base;
+  border-bottom: 2px solid $c_second;
 
   @media (min-width: $bp_ipad_portrait) {
     position: relative;
@@ -25,6 +26,7 @@
     align-items: flex-end;
 
     border-right: 2px solid $c_second;
+    border-bottom: none;
   }
 
   @media (min-width: $bp_ipad_landscape) {
@@ -32,6 +34,8 @@
   }
 
   &__item {
+    overflow: hidden;
+
     text-align: center;
 
     @media (min-width: $bp_ipad_portrait) {
