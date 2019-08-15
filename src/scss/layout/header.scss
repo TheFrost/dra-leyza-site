@@ -33,7 +33,7 @@
   }
 
   &__burger {
-    @media (min-width: $bp_ipad_landscape) {
+    @media (min-width: $bp_ipad_portrait) {
       display: none;
     }
   }
@@ -43,7 +43,7 @@
     flex-direction: column;
     align-items: flex-end;
 
-    @media (min-width: $bp_ipad_landscape) {
+    @media (min-width: $bp_ipad_portrait) {
       display: flex;
     }
   }

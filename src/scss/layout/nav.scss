@@ -1,0 +1,48 @@
+.nav {
+  position: absolute;
+  top: 66px;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  height: calc(100vh - 66px);
+
+  background-color: $c_base;
+
+  @media (min-width: $bp_ipad_portrait) {
+    position: relative;
+    top: inherit;
+
+    width: 30%;
+    max-width: 300px;
+    height: auto;
+    padding: 2rem 3rem;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    border-right: 2px solid $c_second;
+  }
+
+  @media (min-width: $bp_ipad_landscape) {
+    width: 25%;
+  }
+
+  &__item {
+    text-align: center;
+
+    @media (min-width: $bp_ipad_portrait) {
+      text-align: right;
+    }
+
+    a {
+      display: block;
+      padding: 0.8rem 1rem;
+
+      font-size: 1.5rem;
+    }
+  }
+}

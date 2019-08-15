@@ -2,12 +2,15 @@
 @import 'tools/mixins';
 @import 'tools/fonts';
 @import 'tools/variables';
+@import 'tools/utils';
 
 // base
 @import 'base';
 
 // layout
 @import 'layout/header';
+@import 'layout/main';
+@import 'layout/nav';
 @import 'layout/footer';
 
 // components
