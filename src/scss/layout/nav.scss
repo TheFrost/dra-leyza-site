@@ -14,7 +14,25 @@
   background-color: $c_base;
   border-bottom: 2px solid $c_second;
 
-  @media (min-width: $bp_ipad_portrait) {
+  &__item {
+    overflow: hidden;
+
+    text-align: center;
+
+    a {
+      display: block;
+      padding: 0.8rem 1rem;
+
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// tablet & desktop
+body.tablet-device,
+body.desktop-device {
+
+  .nav {
     position: relative;
     top: inherit;
 
@@ -27,26 +45,14 @@
 
     border-right: 2px solid $c_second;
     border-bottom: none;
-  }
 
-  @media (min-width: $bp_ipad_landscape) {
-    width: 25%;
-  }
+    @media (min-width: $bp_ipad_landscape) {
+      width: 25%;
+    }
 
-  &__item {
-    overflow: hidden;
-
-    text-align: center;
-
-    @media (min-width: $bp_ipad_portrait) {
+    &__item {
       text-align: right;
     }
-
-    a {
-      display: block;
-      padding: 0.8rem 1rem;
-
-      font-size: 1.5rem;
-    }
   }
+
 }

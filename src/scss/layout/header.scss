@@ -7,48 +7,22 @@
   align-items: center;
   padding: 0.5rem;
 
-  @media (min-width: $bp_ipad_portrait) {
-    padding: 0.5rem 1rem;
-
-    border-bottom: 2px solid $c_second;
-  }
-
   &__logo {
     svg {
       width: 90px;
       height: 48px;
-
-      @media (min-width: $bp_ipad_portrait) {
-        width: 150px;
-        height: 80px;
-      }
     }
   }
 
   &__copy {
     width: 141px;
     height: 26px;
-
-    @media (min-width: $bp_ipad_portrait) {
-      width: 250px;
-      height: 47px;
-    }
-  }
-
-  &__burger {
-    @media (min-width: $bp_ipad_portrait) {
-      display: none;
-    }
   }
 
   &__contact {
     display: none;
     flex-direction: column;
     align-items: flex-end;
-
-    @media (min-width: $bp_ipad_portrait) {
-      display: flex;
-    }
   }
 
   &__phone {
@@ -66,4 +40,36 @@
   &__email {
     margin-top: 0.3rem;
   }
+}
+
+// tablet & desktop
+body.tablet-device,
+body.desktop-device {
+
+  .header {
+    padding: 0.5rem 1rem;
+
+    border-bottom: 2px solid $c_second;
+
+    &__logo {
+      svg {
+        width: 150px;
+        height: 80px;
+      }
+    }
+
+    &__copy {
+      width: 250px;
+      height: 47px;
+    }
+
+    &__burger {
+      display: none;
+    }
+
+    &__contact {
+      display: flex;
+    }
+  }
+
 }
