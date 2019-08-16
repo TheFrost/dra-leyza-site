@@ -1,4 +1,48 @@
 .footer {
-  height: 50px;
-  background-color: lighten($c_base, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+
+  border-top: 2px solid $c_second;
+
+  &__copyright,
+  &__address {
+    margin: 0;
+  }
+
+  &__address {
+    display: none;
+  }
+
+  &__social {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+
+    li:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}
+
+// tablet & desktop
+body.tablet-device,
+body.desktop-device {
+
+  .footer {
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+
+    &__address {
+      @media (min-width: $bp_ipad_landscape) {
+        display: block;
+      }
+    }
+
+    &__social {
+      display: flex;
+    }
+  }
+
 }
