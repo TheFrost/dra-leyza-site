@@ -2,5 +2,15 @@
 extends pug/layout/layout
 
 block content
-  div.content
-    h1 Hello Home!
+  article.intro
+    figure.intro__fig
+      svg.svg
+        use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leyza-draw")
+    div.intro__body
+      h1.intro__title Soy la Dra. Leyza
+      p.text.intro__text Ser honesta, comprometida y empática con mis pacientes son valores que siempre fueron prioridad en mi labor profesional, atendiendo de manera global el universo femenino para traducirlo de una manera simple y cercana.
+      p.text.intro__text Las mujeres que llegan hasta mi, antes que pacientes son personas, escucho tantos sus palabras y relatos como a sus cuerpos, ya que no todo se encasilla en un diagnóstico o genética. Mi pasión es ser de alguna manera una herramienta de ayuda, de conocimiento y de aprendizaje para cada paciente que se acerca con confianza a consultarme.
+      a.link.intro__cta(href="#")
+        span Datos académicos y profesionales
+        svg.svg
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right")

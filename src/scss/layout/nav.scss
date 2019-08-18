@@ -1,7 +1,8 @@
 .nav {
   position: absolute;
-  top: 66px;
+  top: 64px; // header height
   left: 0;
+  z-index: 9;
 
   display: flex;
   flex-direction: column;
@@ -9,7 +10,9 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
-  height: calc(100vh - 66px);
+
+  $offset: 64px + 41px - 2px; // header height + footer height + border width
+  height: calc(100vh - #{$offset});
 
   background-color: $c_base;
   border-bottom: 2px solid $c_second;

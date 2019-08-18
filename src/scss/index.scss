@@ -7,13 +7,16 @@
 // base
 @import 'base';
 
-// layout
-@import 'layout/header';
-@import 'layout/main';
-@import 'layout/nav';
-@import 'layout/footer';
-
 // components
 @import 'components/svg';
 @import 'components/burger';
 @import 'components/link';
+@import 'components/intro';
+@import 'components/text';
+
+// layout
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/content';
+@import 'layout/nav';
+@import 'layout/footer';

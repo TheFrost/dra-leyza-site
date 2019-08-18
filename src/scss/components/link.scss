@@ -1,4 +1,7 @@
 .link {
+  display: flex;
+  align-items: center;
+
   &:hover, &.active {
     > span:before {
       transform: scale3d(1, 1, 1);
@@ -27,5 +30,11 @@
       transform-origin: right center;
       transition: transform 0.17s ease-in-out;
     }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: 4px 0 0 0.5rem;
   }
 }

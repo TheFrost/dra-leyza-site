@@ -1,0 +1,69 @@
+.intro {
+  @media (min-width: $bp_ipad_landscape) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__fig {
+    margin: 0 0 1rem;
+
+    @media (min-width: $bp_ipad_landscape) {
+      margin-right: 2rem;
+    }
+
+    @media (min-width: $bp_laptop) {
+      margin-right: 4rem;
+    }
+
+    svg {
+      margin: 0 auto;
+      width: 168px;
+      height: 248px;
+
+      @media (min-width: $bp_ipad_portrait) {
+        width: 210px;
+        height: 310px;
+      }
+
+      @media (min-width: $bp_laptop) {
+        width: 252px;
+        height: 372px;
+      }
+    }
+  }
+
+  &__body {
+    @media (min-width: $bp_ipad_landscape) {
+      $offset: '(210px + 2rem)'; // width fig + margin right
+      flex-basis: calc(100% - #{$offset});
+    }
+
+    @media (min-width: $bp_laptop) {
+      max-width: 500px;
+      $offset: '(252px + 4rem)'; // width fig + margin right
+      flex-basis: calc(100% - #{$offset});
+    }
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+
+    font-size: 2rem;
+
+    @media (min-width: $bp_ipad_portrait) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__cta {
+    margin-top: 2rem;
+    justify-content: flex-end;
+
+    font-size: 0.9rem;
+
+    @media (min-width: $bp_ipad_portrait) {
+      font-size: 1rem;
+    }
+  }
+}

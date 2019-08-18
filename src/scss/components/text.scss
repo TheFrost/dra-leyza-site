@@ -1,0 +1,9 @@
+.text {
+  text-align: justify;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.9rem;
+
+  @media (min-width: $bp_ipad_portrait) {
+    font-size: 1rem;
+  }
+}
