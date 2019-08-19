@@ -64,7 +64,7 @@ export default class Overlay {
       })
     }
 
-    TweenMax.to(overlay, 1, {
+    TweenMax.to(overlay, 0.6, {
       x: action === 'in' ? '0%' : this.directionValues[this.currentDirection].to,
       ease: 'Expo.easeInOut'
     }).eventCallback('onComplete', () => {
