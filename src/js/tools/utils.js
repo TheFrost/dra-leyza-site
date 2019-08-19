@@ -1,3 +1,17 @@
+import Pubsub from './pubsub'
+
+/**
+ * Toggle class
+ */
+export const toggleClass = (el, ...classes) => {
+  classes.map(className => el.classList.toggle(className))
+}
+
+/**
+ * Pubsub pattern custom events
+ */
+export const pubsub = new Pubsub()
+
 /**
  * simple querySelector methods
  */
@@ -20,4 +34,4 @@ export const isSmartphone = () => {
 /**
  * Detect tablet resolutions
  */
-export const isTablet = () => isMobileDevice() && !isSmartphone();
+export const isTablet = () => isMobileDevice() && !isSmartphone()

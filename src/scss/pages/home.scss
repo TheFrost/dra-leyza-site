@@ -1,0 +1,8 @@
+.home {
+  &.doc {
+    .intro { display: none; }
+    .doc { display: block; }
+  }
+
+  .doc { display: none; }
+}

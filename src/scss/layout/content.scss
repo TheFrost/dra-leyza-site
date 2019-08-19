@@ -2,24 +2,84 @@
   position: relative;
   z-index: 8;
 
-  display: flex;
-  padding: 1rem;
-  width: 100%;
+  overflow: hidden;
 
   $offset: 64px + 41px; // header height + footer height
   height: calc(100vh - #{$offset});
 
-  overflow: auto;
-
   @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
-    padding: 4rem;
-
     $offset: 98px + 41px; // header height + footer height
     height: calc(100vh - #{$offset});
   }
 
-  @media (min-width: $bp_laptop) {
-    padding: 4rem 6rem;
+  &.controls {
+    &.top { 
+      .controls__area {
+        top: 0;
+  
+        border-bottom: 2px solid $c_second;
+      }
+  
+      .content__scroll {
+        padding-top: 42px;
+      }
+    }
+  
+    &.bottom { 
+      .controls__area {
+        display: flex;
+
+        bottom: 0;
+  
+        border-top: 2px solid $c_second;
+      }
+  
+      .content__scroll {
+        padding-bottom: 42px;
+      }
+    }
+  
+    &.left {
+      .controls__area {
+        justify-content: flex-start;
+      }
+    }
+    &.right { 
+      .controls__area {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $c_base;
+    border-left: 2px solid $c_second;
+    border-right: 2px solid $c_second;
+  }
+
+  &__scroll {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+
+    overflow: auto;
+
+    @media (min-width: $bp_ipad_portrait) {
+      padding: 4rem;
+    }
+  
+    @media (min-width: $bp_laptop) {
+      padding: 4rem 6rem;
+    }
   }
 
   &__inner {
