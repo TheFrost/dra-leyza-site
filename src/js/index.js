@@ -1,7 +1,7 @@
-import { debounce } from 'lodash'
-import { isSmartphone, isTablet, perfectScrollbar } from './tools/utils'
+import { isSmartphone, isTablet, isMobileDevice } from './tools/utils'
 import BurgerMenu from './modules/burgerMenu'
 import Overlay from './modules/overlay'
+import Scroll from './modules/scroll'
 import Home from './modules/home'
 
 // general modules
@@ -18,9 +18,6 @@ if (isSmartphone()) { // only smartphone
   // modules
   const burger = new BurgerMenu()
   burger.init()
-} else { // only desktop
-  // notify DOM
-  document.body.classList.add('desktop-device')
 }
 
 // only Tablet
@@ -29,7 +26,11 @@ if (isTablet()) {
   document.body.classList.add('tablet-device')
 }
 
-// General bind events
-window.addEventListener('resize', debounce(
-  () => perfectScrollbar.update(), 100
-))
+// only desktop
+if (!isMobileDevice()) {
+  // notify DOM
+  document.body.classList.add('desktop-device')
+
+  const scroll = new Scroll()
+  scroll.init()
+}

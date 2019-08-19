@@ -8,8 +8,13 @@
 
   &.controls {
     .content__scroll {
-      $offset: 98px + 41px + 42px; // header height + footer height + controls height
+      $offset: 64px + 41px + 42px; // header height + footer height + controls height
       height: calc(100vh - #{$offset});
+
+      @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
+        $offset: 98px + 41px + 42px; // header height + footer height + controls height
+        height: calc(100vh - #{$offset});
+      }
     }
 
     &.top { 
@@ -70,7 +75,7 @@
     $offset: 64px + 41px; // header height + footer height
     height: calc(100vh - #{$offset});
 
-    overflow: hidden;
+    overflow: auto;
 
     @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
       $offset: 98px + 41px; // header height + footer height
