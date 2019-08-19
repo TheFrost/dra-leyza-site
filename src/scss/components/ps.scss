@@ -1,0 +1,25 @@
+.ps {
+  &__rail-y {
+    right: 1rem !important;
+    opacity: 1 !important;
+    background-color: none;
+
+    &:after {
+      content: '';
+
+      display: block;
+      width: 2px;
+      height: 100%;
+      margin: 0 auto;
+
+      background-color: $c_second;
+    }
+  }
+
+  &__thumb-y {
+    width: 10px !important;
+
+    border-radius: 0;
+    background-color: $c_second !important;
+  }
+}

@@ -1,3 +1,6 @@
+// plugins
+@import '../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+
 // tools
 @import 'tools/mixins';
 @import 'tools/fonts';
@@ -14,6 +17,9 @@
 @import 'components/intro';
 @import 'components/text';
 @import 'components/controls';
+
+// plugins patch
+@import 'components/ps';
 
 // layout
 @import 'layout/header';

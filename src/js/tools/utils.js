@@ -1,4 +1,10 @@
+import PerfectScrollbar from 'perfect-scrollbar'
 import Pubsub from './pubsub'
+
+/**
+ * Perfect Scrollbar control
+ */
+export const perfectScrollbar = new PerfectScrollbar('.content__scroll')
 
 /**
  * Toggle class

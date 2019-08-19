@@ -9,6 +9,14 @@
     }
   }
 
+  &.right {
+    svg { margin-left: 0.5rem; }
+  }
+
+  &.left {
+    svg { margin-right: 0.5rem; }
+  }
+
   span {
     position: relative;
 
@@ -35,6 +43,6 @@
   svg {
     width: 20px;
     height: 20px;
-    margin: 4px 0 0 0.5rem;
+    margin-top: 4px;
   }
 }

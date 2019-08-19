@@ -1,4 +1,5 @@
-import { isSmartphone, isTablet } from './tools/utils'
+import { debounce } from 'lodash'
+import { isSmartphone, isTablet, perfectScrollbar } from './tools/utils'
 import BurgerMenu from './modules/burgerMenu'
 import Overlay from './modules/overlay'
 import Home from './modules/home'
@@ -27,3 +28,8 @@ if (isTablet()) {
   // notify DOM
   document.body.classList.add('tablet-device')
 }
+
+// General bind events
+window.addEventListener('resize', debounce(
+  () => perfectScrollbar.update(), 100
+))

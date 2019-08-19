@@ -1,4 +1,4 @@
-import { $, pubsub, toggleClass } from '../tools/utils'
+import { $, pubsub, toggleClass, perfectScrollbar } from '../tools/utils'
 
 export default class Home {
   constructor () {
@@ -19,6 +19,7 @@ export default class Home {
     const { home } = this.DOM
 
     toggleClass(home, 'doc', 'controls')
+    perfectScrollbar.update()
     pubsub.publish('overlayOut')
   }
 }
