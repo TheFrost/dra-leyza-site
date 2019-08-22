@@ -70,11 +70,15 @@ export default class BurgerMenu {
   }
 
   bindEvents () {
-    const { burger } = this.DOM
+    const { burger, navLinks } = this.DOM
 
     burger.addEventListener('click', (e) => {
       e.preventDefault()
       this.clickHandler()
+    })
+
+    navLinks.map(link => {
+      link.addEventListener('click', () => this.clickHandler())
     })
   }
 
