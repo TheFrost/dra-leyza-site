@@ -2,12 +2,13 @@ const Bundler = require('parcel-bundler')
 const app = require('express')()
 const path = require('path')
 const fs = require('fs')
+const arg = process.argv[2] || '*'
 
 let isFirstBuild = true
 
 const serverDir = './dist'
 
-const bundler = new Bundler('./src/index.pug', {
+const bundler = new Bundler(`./src/${arg}.pug`, {
   sourceMaps: false,
   cache: false
 })
