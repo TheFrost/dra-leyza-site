@@ -1,7 +1,14 @@
 import { $, $$, pubsub } from '../tools/utils'
 
 export default class AnchorNav {
+  static instance = null
+
   constructor () {
+    // singleton pattern
+    if (AnchorNav.instance !== null) {
+      return AnchorNav.instance
+    }
+
     this.DOM = {
       content: $('.content'),
       from: null,
@@ -9,6 +16,8 @@ export default class AnchorNav {
     }
 
     this.bindEvents()
+
+    AnchorNav.instance = this
   }
 
   init () {
