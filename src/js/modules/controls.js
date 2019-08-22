@@ -1,8 +1,9 @@
-import { $$, pubsub } from '../tools/utils'
+import { $, $$, pubsub } from '../tools/utils'
 
 export default class Controls {
   constructor () {
     this.DOM = {
+      content: $('.content'),
       controls: $$('.control-trigger')
     }
   }
@@ -15,12 +16,19 @@ export default class Controls {
     const { controls } = this.DOM
 
     controls.map(control => control.addEventListener('click', (e) => this.triggerControl(e)))
+
+    pubsub.suscribe('controls:toggle', this.toggleControls, this)
   }
 
   triggerControl ({ currentTarget }) {
     const { typeAction } = currentTarget.dataset
-    console.log(typeAction)
 
     pubsub.publish(`controls:${typeAction}`)
+  }
+
+  toggleControls (areActive) {
+    const { content } = this.DOM
+
+    content.classList.toggle('controls', areActive)
   }
 }

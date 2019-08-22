@@ -1,4 +1,5 @@
 import { isSmartphone, isTablet, isDesktop } from './tools/utils'
+import HighwayNav from './highway/highwayNav'
 import BurgerMenu from './modules/burgerMenu'
 import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
@@ -7,6 +8,9 @@ import ModuleManager from './moduleManager'
 import Home from './modules/home'
 import Controls from './modules/controls'
 
+/**
+ * Notify DOM device type
+ */
 if (isSmartphone()) document.body.classList.add('smartphone-device')
 if (isTablet()) document.body.classList.add('tablet-device')
 if (isDesktop()) document.body.classList.add('desktop-device')
@@ -17,6 +21,7 @@ if (isDesktop()) document.body.classList.add('desktop-device')
 const moduleCatalogSetup = {
   general () {
     return [
+      new HighwayNav(),
       new Overlay(),
       new Controls(),
 

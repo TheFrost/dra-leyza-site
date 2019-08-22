@@ -14,10 +14,11 @@ export default class AnchorNav {
     }
 
     this.DOM = {
-      content: $('.content'),
       from: null,
       to: null
     }
+
+    this.isAnchorNavInAction = false
 
     this.bindEvents()
 
@@ -53,18 +54,23 @@ export default class AnchorNav {
     this.uiControlsActive = !!controls
 
     pubsub.publish('overlayIn', direction)
+
+    this.isAnchorNavInAction = true
   }
 
   triggerChangeView () {
-    const { from, to, content } = this.DOM
+    if (!this.isAnchorNavInAction) return
+
+    const { from, to } = this.DOM
 
     from.style.display = 'none'
     to.style.display = 'block'
 
-    content.classList.toggle('controls', this.uiControlsActive)
-
+    pubsub.publish('controls:toggle', this.uiControlsActive)
     pubsub.publish('psUpdate')
     pubsub.publish('overlayOut')
+
+    this.isAnchorNavInAction = false
   }
 
   dispose () {

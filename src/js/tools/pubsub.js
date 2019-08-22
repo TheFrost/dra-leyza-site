@@ -10,19 +10,26 @@ export default class PubSub {
     this.class = PubSub
   }
 
-  suscribe (event, handler, context) {
-    if (typeof context === 'undefined') { context = handler }
+  suscribe (event, handler, context = null, isOnceType) {
+    if (context === null) { context = handler }
     this.class.handlers.push({
       event,
-      handler: handler.bind(context)
+      handler: handler.bind(context),
+      isOnceType
     })
   }
 
   publish (eventEmited, args) {
-    this.class.handlers.forEach(({ event, handler }) => {
+    const { handlers } = this.class
+
+    this.class.handlers = handlers.filter(handlerItem => {
+      const { event, handler, isOnceType } = handlerItem
+
       if (eventEmited === event) {
         handler(args)
       }
+
+      return !isOnceType
     })
   }
 }
