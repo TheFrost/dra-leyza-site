@@ -1,36 +1,39 @@
-import { isSmartphone, isTablet, isMobileDevice } from './tools/utils'
+import { isSmartphone, isTablet, isDesktop } from './tools/utils'
 import BurgerMenu from './modules/burgerMenu'
 import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
 import AnchorNav from './modules/anchorNav'
+import ModuleManager from './moduleManager'
 
-// general modules
-const overlay = new Overlay()
-overlay.init()
+if (isSmartphone()) document.body.classList.add('smartphone-device')
+if (isTablet()) document.body.classList.add('tablet-device')
+if (isDesktop()) document.body.classList.add('desktop-device')
 
-const anchorNav = new AnchorNav()
-anchorNav.init()
+const moduleCatalogSetup = {
+  general () {
+    return [
+      new Overlay(),
 
-if (isSmartphone()) { // only smartphone
-  // notify DOM
-  document.body.classList.add('smartphone-device')
+      // only smartphone
+      ...isSmartphone()
+        ? [
+          new BurgerMenu()
+        ] : [],
 
-  // modules
-  const burger = new BurgerMenu()
-  burger.init()
+      // only desktop
+      ...isDesktop()
+        ? [
+          new Scroll()
+        ] : []
+    ]
+  },
+
+  home () {
+    return [
+      new AnchorNav()
+    ]
+  }
 }
 
-// only Tablet
-if (isTablet()) {
-  // notify DOM
-  document.body.classList.add('tablet-device')
-}
-
-// only desktop
-if (!isMobileDevice()) {
-  // notify DOM
-  document.body.classList.add('desktop-device')
-
-  const scroll = new Scroll()
-  scroll.init()
-}
+const moduleManager = new ModuleManager(moduleCatalogSetup)
+moduleManager.init()

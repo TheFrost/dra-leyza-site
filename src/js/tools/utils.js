@@ -35,3 +35,8 @@ export const isSmartphone = () => {
  * Detect tablet resolutions
  */
 export const isTablet = () => isMobileDevice() && !isSmartphone()
+
+/**
+ * Detect desktop resolution
+ */
+export const isDesktop = () => !isMobileDevice()

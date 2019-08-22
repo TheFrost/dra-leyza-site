@@ -3,6 +3,8 @@ import { $, $$, pubsub } from '../tools/utils'
 export default class AnchorNav {
   static instance = null
 
+  static triggerHandler = (e) => this.instance.triggerHandler(e)
+
   constructor () {
     // singleton pattern
     if (AnchorNav.instance !== null) {
@@ -37,7 +39,7 @@ export default class AnchorNav {
     const { triggers } = this.DOM
 
     triggers.forEach(trigger => {
-      trigger[`${action}EventListener`]('click', (e) => this.triggerHandler(e))
+      trigger[`${action}EventListener`]('click', AnchorNav.triggerHandler)
     })
   }
 
