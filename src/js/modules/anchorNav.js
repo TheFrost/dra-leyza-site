@@ -3,7 +3,9 @@ import { $, $$, pubsub } from '../tools/utils'
 export default class AnchorNav {
   static instance = null
 
-  static triggerHandler = (e) => this.instance.triggerHandler(e)
+  static triggerHandler = ({ currentTarget }) => {
+    this.instance.setupNav(currentTarget.dataset)
+  }
 
   constructor () {
     // singleton pattern
@@ -33,6 +35,7 @@ export default class AnchorNav {
 
   bindEvents () {
     pubsub.suscribe('inActionEnd', this.triggerChangeView, this)
+    pubsub.suscribe('manualNav', this.setupNav, this)
   }
 
   dynamicBindEvents (action) {
@@ -43,9 +46,7 @@ export default class AnchorNav {
     })
   }
 
-  triggerHandler ({ currentTarget }) {
-    const { from, to, direction, controls } = currentTarget.dataset
-
+  setupNav ({ from, to, direction, controls }) {
     this.DOM.from = $(from)
     this.DOM.to = $(to)
 

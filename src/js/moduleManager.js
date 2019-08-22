@@ -4,9 +4,6 @@ export default class ModuleManager {
   constructor (moduleCatalogSetup) {
     this.moduleCatalogSetup = moduleCatalogSetup
     this.currentScopeModules = []
-    this.DOM = {
-      content: $('.content')
-    }
   }
 
   init () {
@@ -21,8 +18,8 @@ export default class ModuleManager {
   }
 
   setupModules (forcedScope) {
-    const { moduleScope } = this.DOM.content.dataset
-    const scope = forcedScope || moduleScope
+    const { routerView } = $('.wrapper').dataset
+    const scope = forcedScope || routerView
     const scopeSetupFn = this.moduleCatalogSetup[scope]
     this.currentScopeModules = []
 

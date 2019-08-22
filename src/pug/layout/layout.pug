@@ -15,7 +15,17 @@ html(lang="en")
     main.main
       include nav
 
-      block content
+      div.content.bottom.right
+        div.content__overlay
+        div.content__scroll
+          div.content__inner(data-router-wrapper)
+            block content
+
+        div.controls__area
+          a.link.left.control-trigger(href="#", data-type-action="back")
+            svg.svg
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+            span Regresar
 
     include footer
 

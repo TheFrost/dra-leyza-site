@@ -4,15 +4,21 @@ import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
 import AnchorNav from './modules/anchorNav'
 import ModuleManager from './moduleManager'
+import Home from './modules/home'
+import Controls from './modules/controls'
 
 if (isSmartphone()) document.body.classList.add('smartphone-device')
 if (isTablet()) document.body.classList.add('tablet-device')
 if (isDesktop()) document.body.classList.add('desktop-device')
 
+/**
+ * Module manager setup
+ */
 const moduleCatalogSetup = {
   general () {
     return [
       new Overlay(),
+      new Controls(),
 
       // only smartphone
       ...isSmartphone()
@@ -30,7 +36,8 @@ const moduleCatalogSetup = {
 
   home () {
     return [
-      new AnchorNav()
+      new AnchorNav(),
+      new Home()
     ]
   }
 }
