@@ -2,14 +2,14 @@ import { isSmartphone, isTablet, isMobileDevice } from './tools/utils'
 import BurgerMenu from './modules/burgerMenu'
 import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
-import Home from './modules/home'
+import AnchorNav from './modules/anchorNav'
 
 // general modules
 const overlay = new Overlay()
 overlay.init()
 
-const home = new Home()
-home.init()
+const anchorNav = new AnchorNav()
+anchorNav.init()
 
 if (isSmartphone()) { // only smartphone
   // notify DOM

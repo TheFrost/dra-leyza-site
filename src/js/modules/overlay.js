@@ -1,11 +1,10 @@
 import TweenMax from 'gsap'
-import { $, $$, pubsub } from '../tools/utils'
+import { $, pubsub } from '../tools/utils'
 
 export default class Overlay {
   constructor () {
     this.DOM = {
       overlay: $('.content__overlay'),
-      triggers: $$('.overlay-trigger'),
       content: $('.content__scroll')
     }
 
@@ -24,7 +23,6 @@ export default class Overlay {
   init () {
     this.setupOverlay()
     this.bindEvents()
-    this.dynamicBindEvents('add')
   }
 
   setupOverlay () {
@@ -33,32 +31,16 @@ export default class Overlay {
   }
 
   bindEvents () {
-    pubsub.suscribe('overlayIn', () => this.controlHandler('in'))
+    pubsub.suscribe('overlayIn', (direction) => this.controlHandler('in', direction))
     pubsub.suscribe('overlayOut', () => this.controlHandler('out'))
   }
 
-  dynamicBindEvents (mode) {
-    const { triggers } = this.DOM
-    triggers.map(trigger => {
-      trigger[`${mode}EventListener`]('click', (e) => this.triggerHandler(e))
-    })
-  }
-
-  triggerHandler (e) {
-    e.preventDefault()
-
-    const { direction } = e.currentTarget.dataset
-    this.currentDirection = direction
-    this.controlHandler(
-      'in',
-      direction
-    )
-  }
-
-  controlHandler (action) {
+  controlHandler (action, direction) {
     const { overlay, content } = this.DOM
 
     if (action === 'in') {
+      this.currentDirection = direction
+
       TweenMax.set(overlay, {
         x: this.directionValues[this.currentDirection].from
       })

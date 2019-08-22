@@ -1,8 +1,10 @@
 .intro {
-  @media (min-width: $bp_ipad_landscape) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &__inner {
+    @media (min-width: $bp_ipad_landscape) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__fig {
