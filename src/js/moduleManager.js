@@ -18,8 +18,8 @@ export default class ModuleManager {
   }
 
   setupModules (forcedScope) {
-    const { routerView } = $('.wrapper').dataset
-    const scope = forcedScope || routerView
+    const { moduleScope } = $('.wrapper').dataset
+    const scope = forcedScope || moduleScope
     const scopeSetupFn = this.moduleCatalogSetup[scope]
     this.currentScopeModules = []
 

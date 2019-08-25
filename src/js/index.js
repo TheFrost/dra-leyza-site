@@ -5,8 +5,8 @@ import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
 import AnchorNav from './modules/anchorNav'
 import ModuleManager from './moduleManager'
-import Home from './modules/home'
 import Controls from './modules/controls'
+import Home from './viewsModules/home'
 
 /**
  * Notify DOM device type

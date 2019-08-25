@@ -6,8 +6,8 @@ export default class Transition extends Highway.Transition {
     from.remove()
     done()
 
+    pubsub.publish('controls:reset')
     pubsub.publish('manager:setup')
-    pubsub.publish('controls:toggle', false)
     pubsub.publish('psUpdate')
     pubsub.publish('overlayOut')
   }
