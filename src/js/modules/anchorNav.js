@@ -47,11 +47,9 @@ export default class AnchorNav {
     })
   }
 
-  setupNav ({ from, to, direction, controls }) {
+  setupNav ({ from, to, direction }) {
     this.DOM.from = $(from)
     this.DOM.to = $(to)
-
-    this.uiControlsActive = !!controls
 
     pubsub.publish('overlayIn', direction)
 
@@ -62,11 +60,15 @@ export default class AnchorNav {
     if (!this.isAnchorNavInAction) return
 
     const { from, to } = this.DOM
+    const { controls } = to.dataset
 
     from.style.display = 'none'
     to.style.display = 'block'
 
-    pubsub.publish('controls:toggle', this.uiControlsActive)
+    pubsub.publish('controls:reset')
+    if (controls !== undefined) {
+      pubsub.publish('anchor:controls', controls)
+    }
     pubsub.publish('psUpdate')
     pubsub.publish('overlayOut')
 

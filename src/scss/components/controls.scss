@@ -1,12 +1,46 @@
 .controls {
   &__area {
-    position: absolute;
-    z-index: 10;
-
     display: none;
+    justify-content: space-between;
     width: 100%;
     padding: 0.5rem;
 
     background-color: $c_base;
+
+    &.active {
+      display: flex;
+    }
+
+    &.top {
+      top: 0;
+
+      border-bottom: 2px solid $c_second;
+    }
+
+    &.bottom {
+      bottom: 0;
+
+      border-top: 2px solid $c_second;
+    }
+
+    &.back {
+      justify-content: flex-end;
+    }
+  }
+
+  &__trigger {
+    display: none;
+
+    &.show {
+      display: flex;
+    }
+  }
+
+  &__copy {
+    display: none;
+
+    &.show {
+      display: block;
+    }
   }
 }

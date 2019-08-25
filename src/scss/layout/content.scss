@@ -2,53 +2,18 @@
   position: relative;
   z-index: 8;
 
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
   overflow: hidden;
 
-  &.controls {
-    .content__scroll {
-      $offset: 64px + 41px + 42px; // header height + footer height + controls height
-      height: calc(100vh - #{$offset});
+  $offset: 64px + 41px; // header height + footer height
+  height: calc(100vh - #{$offset});
 
-      @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
-        $offset: 98px + 41px + 42px; // header height + footer height + controls height
-        height: calc(100vh - #{$offset});
-      }
-    }
-
-    &.top { 
-      .controls__area {
-        top: 0;
-  
-        border-bottom: 2px solid $c_second;
-      }
-  
-      .content__scroll {
-        padding-top: 42px;
-      }
-    }
-  
-    &.bottom { 
-      .controls__area {
-        display: flex;
-
-        bottom: 0;
-  
-        border-top: 2px solid $c_second;
-      }
-    }
-  
-    &.left {
-      .controls__area {
-        justify-content: flex-start;
-      }
-    }
-    &.right { 
-      .controls__area {
-        justify-content: flex-end;
-      }
-    }
+  @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
+    $offset: 98px + 41px; // header height + footer height
+    height: calc(100vh - #{$offset});
   }
 
   &__overlay {
@@ -67,18 +32,12 @@
     position: relative;
 
     display: flex;
+    flex-grow: 1;
     width: 100%;
+    height: 100%;
     padding: 1rem;
 
-    $offset: 64px + 41px; // header height + footer height
-    height: calc(100vh - #{$offset});
-
     overflow: auto;
-
-    @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
-      $offset: 98px + 41px; // header height + footer height
-      height: calc(100vh - #{$offset});
-    }
 
     @media (min-width: $bp_ipad_portrait) {
       padding: 4rem;

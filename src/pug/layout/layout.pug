@@ -15,14 +15,31 @@ html(lang="en")
     main.main
       include nav
 
-      div.content.bottom.right
+      div.content.bottom
         div.content__overlay
+
+        div.controls__area.top
+          p.controls__copy
+          a.link.left.controls__trigger(href="#", data-type-action="back")
+            svg.svg
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+            span Regresar
+
         div.content__scroll
           div.content__inner(data-router-wrapper)
             block content
 
-        div.controls__area
-          a.link.left.control-trigger(href="#", data-type-action="back")
+        div.controls__area.bottom
+          p.controls__copy
+          a.link.left.controls__trigger.prev(href="#", data-type-action="prev")
+            svg.svg
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+            span Anterior
+          a.link.right.controls__trigger.next(href="#", data-type-action="next")
+            span Siguiente
+            svg.svg
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right")
+          a.link.left.controls__trigger(href="#", data-type-action="back")
             svg.svg
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
             span Regresar
