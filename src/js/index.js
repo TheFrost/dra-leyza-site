@@ -7,6 +7,7 @@ import AnchorNav from './modules/anchorNav'
 import ModuleManager from './moduleManager'
 import Controls from './modules/controls'
 import Home from './viewsModules/home'
+import Services from './viewsModules/services'
 
 /**
  * Notify DOM device type

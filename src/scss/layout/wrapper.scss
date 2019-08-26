@@ -1,0 +1,7 @@
+.wrapper {
+  padding: 1rem;
+
+  @media (min-width: $bp_ipad_portrait) {
+    padding: 2rem 4rem;
+  }
+}

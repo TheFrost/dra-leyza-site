@@ -17,6 +17,7 @@
 @import 'components/intro';
 @import 'components/text';
 @import 'components/controls';
+@import 'components/grid';
 
 // plugins patch
 @import 'components/ps';
@@ -25,8 +26,10 @@
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/content';
+@import 'layout/wrapper';
 @import 'layout/nav';
 @import 'layout/footer';
 
 // pages
 @import 'pages/home';
+@import 'pages/services';

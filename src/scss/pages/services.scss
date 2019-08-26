@@ -1,0 +1,10 @@
+.services {
+  padding: 0;
+}
+
+// desktop device
+body.desktop-device {
+  .services {
+    padding-right: 3rem;
+  }
+}
