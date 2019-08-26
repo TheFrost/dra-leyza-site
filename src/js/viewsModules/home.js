@@ -1,16 +1,22 @@
 import { pubsub } from '../tools/utils'
 
 export default class Home {
+  static instance = null
+
   constructor () {
+    // singleton pattern
+    if (Home.instance !== null) {
+      return Home.instance
+    }
+    Home.instance = this
+
     this.controlsSettings = {
       doc: {
         area: 'bottom',
         controls: ['back']
       }
     }
-  }
 
-  init () {
     this.bindEvents()
   }
 

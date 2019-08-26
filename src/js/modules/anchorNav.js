@@ -3,15 +3,12 @@ import { $, $$, pubsub } from '../tools/utils'
 export default class AnchorNav {
   static instance = null
 
-  static triggerHandler = ({ currentTarget }) => {
-    this.instance.setupNav(currentTarget.dataset)
-  }
-
   constructor () {
     // singleton pattern
     if (AnchorNav.instance !== null) {
       return AnchorNav.instance
     }
+    AnchorNav.instance = this
 
     this.DOM = {
       from: null,
@@ -21,8 +18,7 @@ export default class AnchorNav {
     this.isAnchorNavInAction = false
 
     this.bindEvents()
-
-    AnchorNav.instance = this
+    this.triggerHandler = this.triggerHandler.bind(this)
   }
 
   init () {
@@ -43,8 +39,12 @@ export default class AnchorNav {
     const { triggers } = this.DOM
 
     triggers.forEach(trigger => {
-      trigger[`${action}EventListener`]('click', AnchorNav.triggerHandler)
+      trigger[`${action}EventListener`]('click', this.triggerHandler)
     })
+  }
+
+  triggerHandler ({ currentTarget }) {
+    this.setupNav(currentTarget.dataset)
   }
 
   setupNav ({ from, to, direction }) {

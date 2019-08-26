@@ -10,10 +10,14 @@
   }
 
   &.right {
+    justify-content: flex-end;
+
     svg { margin-left: 0.5rem; }
   }
 
   &.left {
+    justify-content: flex-start;
+
     svg { margin-right: 0.5rem; }
   }
 

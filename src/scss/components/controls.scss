@@ -33,11 +33,13 @@
 
     &.show {
       display: flex;
+      flex-grow: 1;
     }
   }
 
   &__copy {
     display: none;
+    margin: 0;
 
     &.show {
       display: block;

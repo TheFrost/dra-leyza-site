@@ -20,7 +20,7 @@ html(lang="en")
 
         div.controls__area.top
           p.controls__copy
-          a.link.left.controls__trigger(href="#", data-type-action="back")
+          a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
             svg.svg
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
             span Regresar
@@ -31,7 +31,7 @@ html(lang="en")
 
         div.controls__area.bottom
           p.controls__copy
-          a.link.left.controls__trigger.prev(href="#", data-type-action="prev")
+          a.link.left.controls__trigger.prev(href="#", data-type-action="prev", data-direction="left")
             svg.svg
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
             span Anterior
@@ -39,7 +39,7 @@ html(lang="en")
             span Siguiente
             svg.svg
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right")
-          a.link.left.controls__trigger(href="#", data-type-action="back")
+          a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
             svg.svg
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
             span Regresar

@@ -6,13 +6,9 @@
 export default class PubSub {
   static handlers = []
 
-  constructor () {
-    this.class = PubSub
-  }
-
-  suscribe (event, handler, context = null, isOnceType) {
+  suscribe (event, handler, context = null, isOnceType = false) {
     if (context === null) { context = handler }
-    this.class.handlers.push({
+    PubSub.handlers.push({
       event,
       handler: handler.bind(context),
       isOnceType
@@ -20,16 +16,16 @@ export default class PubSub {
   }
 
   publish (eventEmited, args) {
-    const { handlers } = this.class
-
-    this.class.handlers = handlers.filter(handlerItem => {
+    PubSub.handlers = PubSub.handlers.filter(handlerItem => {
       const { event, handler, isOnceType } = handlerItem
 
       if (eventEmited === event) {
         handler(args)
+
+        return !isOnceType
       }
 
-      return !isOnceType
+      return true
     })
   }
 }
