@@ -19,32 +19,32 @@ if (isDesktop()) document.body.classList.add('desktop-device')
  * Module manager setup
  */
 const moduleCatalogSetup = {
-  general () {
-    return [
-      new HighwayNav(),
-      new Overlay(),
-      new Controls(),
+  general: [
+    new HighwayNav(),
+    new Overlay(),
+    new Controls(),
 
-      // only smartphone
-      ...isSmartphone()
-        ? [
-          new BurgerMenu()
-        ] : [],
+    // only smartphone
+    ...isSmartphone()
+      ? [
+        new BurgerMenu()
+      ] : [],
 
-      // only desktop
-      ...isDesktop()
-        ? [
-          new Scroll()
-        ] : []
-    ]
-  },
+    // only desktop
+    ...isDesktop()
+      ? [
+        new Scroll()
+      ] : []
+  ],
 
-  home () {
-    return [
-      new AnchorNav(),
-      new Home()
-    ]
-  }
+  home: [
+    new Home(),
+    new AnchorNav()
+  ],
+
+  services: [
+    new Services()
+  ]
 }
 
 const moduleManager = new ModuleManager(moduleCatalogSetup)

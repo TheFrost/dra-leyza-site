@@ -20,13 +20,12 @@ export default class ModuleManager {
   setupModules (forcedScope) {
     const { moduleScope } = $('.wrapper').dataset
     const scope = forcedScope || moduleScope
-    const scopeSetupFn = this.moduleCatalogSetup[scope]
-    this.currentScopeModules = []
 
-    if (scopeSetupFn === undefined) return // if not scope defined stop method
+    this.currentScopeModules = this.moduleCatalogSetup[scope] || []
 
-    this.currentScopeModules = scopeSetupFn()
-    this.currentScopeModules.map(module => module.init())
+    if (this.currentScopeModules.length > 0) {
+      this.currentScopeModules.map(module => module.init ? module.init() : null)
+    }
   }
 
   disposeModules () {
