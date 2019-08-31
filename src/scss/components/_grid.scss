@@ -15,6 +15,20 @@
     &:nth-child(odd) {
       border-right: 2px solid $c_second;
     }
+
+    // mobile grid 2 cols, first 2 items dont have top border
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        border-top: none;
+      }
+    }
+
+    // desktop add 3rd col to items without top border
+    @media (min-width: $bp_laptop) {
+      &:nth-child(3) {
+        border-top: none;
+      }
+    }
   }
 
   &__link {
