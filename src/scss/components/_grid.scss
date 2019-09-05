@@ -7,9 +7,25 @@
 
     border-top: 2px solid $c_second;
 
+    $offset: 64px + 41px + 41px; // header height + footer height + copy height
+    min-height: calc((100vh - #{$offset}) / 6);
+
+    @media (min-width: $bp_ipad_portrait) and (min-height: 600px) {
+      $offset: 98px + 41px + 41px; // header height + footer height
+      min-height: calc((100vh - #{$offset}) / 6);
+    }
+
     @media (min-width: $bp_laptop) {
+      $offset: 98px + 41px + 41px; // header height + footer height + copy height
+      min-height: calc((100vh - #{$offset}) / 2);
+
       flex-basis: calc(100% / 3);
       border-right: 2px solid $c_second;
+    }
+
+    @media (min-width: $bp_monitor) {
+      $offset: 98px + 41px + 41px; // header height + footer height + copy height
+      min-height: calc((100vh - #{$offset}) / 4);
     }
 
     &:nth-child(odd) {
@@ -39,11 +55,13 @@
   }
 
   &__icon {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem 2rem;
+    flex-grow: 1;
 
     svg {
-      margin: 0 auto;
       width: 128px;
       height: 102px;
     }
@@ -53,11 +71,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
     flex-grow: 1;
+    padding: 0.5rem;
 
     text-align: center;
 
     border-top: 2px solid $c_second;
+
+    @media (min-width: $bp_monitor) {
+      flex-grow: none;
+    }
   }
 }
