@@ -11,21 +11,29 @@ export default class Grid {
     }
     Grid.instance = this
 
+    this.setLabelUniformSizeDebounced = debounce(
+      () => this.setLabelUniformSize(), 100
+    )
+  }
+
+  init () {
+    this.setupSelectors()
+    this.setLabelUniformSize()
+    this.dynamicBindEvents('add')
+  }
+
+  setupSelectors () {
     this.DOM = {
       gridLabels: $$('.grid__label'),
       gridLabelsInner: $$('.grid__label-inner')
     }
   }
 
-  init () {
-    this.setLabelUniformSize()
-    this.bindEvents()
-  }
-
-  bindEvents () {
-    window.addEventListener('resize', debounce(
-      () => this.setLabelUniformSize(), 100
-    ))
+  dynamicBindEvents (action) {
+    window[`${action}EventListener`](
+      'resize',
+      this.setLabelUniformSizeDebounced
+    )
   }
 
   setLabelUniformSize () {
@@ -35,5 +43,9 @@ export default class Grid {
       .sort((a, b) => b - a)[0]
 
     gridLabels.map(label => (label.style.height = `${maxSize + 2}px`))
+  }
+
+  dispose () {
+    this.dynamicBindEvents('remove')
   }
 }
