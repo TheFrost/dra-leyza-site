@@ -82,10 +82,10 @@ export default class Services {
         controls: ['prev', 'next'],
         href: [
           '/menopausia-y-climaterio',
-          '/control-parental'
+          '/control-prenatal'
         ]
       },
-      parental: {
+      prenatal: {
         controls: ['prev', 'next'],
         href: [
           '/colposcopia',
@@ -94,7 +94,7 @@ export default class Services {
       },
       planificacion: {
         controls: ['prev'],
-        href: ['/control-parental']
+        href: ['/control-prenatal']
       }
     }
     // this.controlsSettings = {
@@ -169,10 +169,10 @@ export default class Services {
     //     controls: ['prev', 'next'],
     //     href: [
     //       '/servicios/menopausia-y-climaterio',
-    //       '/servicios/control-parental'
+    //       '/servicios/control-prenatal'
     //     ]
     //   },
-    //   parental: {
+    //   prenatal: {
     //     controls: ['prev', 'next'],
     //     href: [
     //       '/servicios/colposcopia',
@@ -181,7 +181,7 @@ export default class Services {
     //   },
     //   planificacion: {
     //     controls: ['prev'],
-    //     href: ['/servicios/control-parental']
+    //     href: ['/servicios/control-prenatal']
     //   }
     // }
   }
