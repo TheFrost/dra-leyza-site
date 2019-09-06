@@ -6,6 +6,7 @@ import Scroll from './modules/scroll'
 import AnchorNav from './modules/anchorNav'
 import ModuleManager from './moduleManager'
 import Controls from './modules/controls'
+import Grid from './modules/grid'
 import Home from './viewsModules/home'
 import Services from './viewsModules/services'
 
@@ -44,7 +45,8 @@ const moduleCatalogSetup = {
   ],
 
   services: [
-    new Services()
+    new Services(),
+    new Grid()
   ]
 }
 

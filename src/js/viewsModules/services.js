@@ -10,6 +10,10 @@ export default class Services {
     }
     Services.instance = this
 
+    this.DOM = {
+      wrapper: $('.wrapper')
+    }
+
     this.controlsSettings = {
       uniform: {
         area: 'top',
@@ -100,7 +104,13 @@ export default class Services {
   }
 
   init () {
-    const { serviceControls } = $('.wrapper').dataset
+    this.setupControls()
+  }
+
+  setupControls () {
+    const { wrapper } = this.DOM
+    const { serviceControls } = wrapper.dataset
+
     pubsub.publish('controls:setup', [
       this.controlsSettings.uniform,
       ...serviceControls !== undefined
