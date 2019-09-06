@@ -14,7 +14,9 @@ export default class Transition extends Highway.Transition {
   }
 
   out ({ trigger, done }) {
-    const { direction } = trigger.dataset
+    const direction = trigger.dataset
+      ? trigger.dataset.direction
+      : null
 
     pubsub.publish('overlayIn', direction || 'right')
     pubsub.publish('manager:dispose')
