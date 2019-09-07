@@ -69,7 +69,7 @@ export default class AnchorNav {
     if (controls !== undefined) {
       pubsub.publish('anchor:controls', controls)
     }
-    pubsub.publish('psUpdate')
+    pubsub.publish('ps:update')
     pubsub.publish('overlayOut')
 
     this.isAnchorNavInAction = false

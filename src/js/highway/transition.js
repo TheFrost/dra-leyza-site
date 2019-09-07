@@ -7,7 +7,7 @@ export default class Transition extends Highway.Transition {
 
     pubsub.publish('controls:reset')
     pubsub.publish('manager:setup')
-    pubsub.publish('psUpdate')
+    pubsub.publish('ps:update')
     pubsub.publish('overlayOut')
 
     done()

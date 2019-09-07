@@ -2,14 +2,15 @@ import { debounce } from 'lodash'
 import { isSmartphone, isTablet, isDesktop } from './tools/utils'
 import HighwayNav from './highway/highwayNav'
 import BurgerMenu from './modules/burgerMenu'
+import Home from './viewsModules/home'
+import Services from './viewsModules/services'
 import Overlay from './modules/overlay'
 import Scroll from './modules/scroll'
 import AnchorNav from './modules/anchorNav'
 import ModuleManager from './moduleManager'
 import Controls from './modules/controls'
 import Grid from './modules/grid'
-import Home from './viewsModules/home'
-import Services from './viewsModules/services'
+import Textarea from './modules/textarea'
 
 /**
  * Notify DOM device type
