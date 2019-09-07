@@ -10,6 +10,8 @@ html, body {
 
   background-color: $c_base;
   color: $c_second;
+
+  overflow: hidden;
 }
 
 *, *:after, *:before {
