@@ -19,82 +19,98 @@ export default class Services {
         area: 'bottom'
       },
       ultrasonido: {
-        controls: ['next'],
-        href: ['/servicios/miomectomia-laparoscopica']
+        controls: ['togrid', 'next'],
+        href: [
+          '/servicios',
+          '/servicios/miomectomia-laparoscopica'
+        ]
       },
       miomectomia: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/ultrasonido',
           '/servicios/endometriosis'
         ]
       },
       endometriosis: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/miomectomia-laparoscopica',
           '/servicios/reseccion-laparoscopica-de-quistes'
         ]
       },
       reseccion: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/endometriosis',
           '/servicios/estudio-de-infertilidad'
         ]
       },
       infertilidad: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/reseccion-laparoscopica-de-quistes',
           '/servicios/histeroscopia-de-consultorio'
         ]
       },
       histeroscopia: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/estudio-de-infertilidad',
           '/servicios/atencion-de-parto'
         ]
       },
       parto: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/histeroscopia-de-consultorio',
           '/servicios/atencion-de-parto-por-cesarea'
         ]
       },
       cesarea: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/atencion-de-parto',
           '/servicios/menopausia-y-climaterio'
         ]
       },
       menopausia: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/atencion-de-parto-por-cesarea',
           '/servicios/colposcopia'
         ]
       },
       colposcopia: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/menopausia-y-climaterio',
           '/servicios/control-prenatal'
         ]
       },
       prenatal: {
-        controls: ['prev', 'next'],
+        controls: ['togrid', 'prev', 'next'],
         href: [
+          '/servicios',
           '/servicios/colposcopia',
           '/servicios/planificacion-familiar'
         ]
       },
       planificacion: {
-        controls: ['prev'],
-        href: ['/servicios/control-prenatal']
+        controls: ['togrid', 'prev'],
+        href: [
+          '/servicios',
+          '/servicios/control-prenatal'
+        ]
       }
     }
   }

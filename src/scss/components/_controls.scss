@@ -1,5 +1,7 @@
 .controls {
   &__area {
+    position: relative;
+
     display: none;
     justify-content: space-between;
     width: 100%;
@@ -34,6 +36,19 @@
     &.show {
       display: flex;
       flex-grow: 1;
+    }
+
+    &.togrid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      margin-top: -10px;
+      margin-left: -10px;
+
+      svg {
+        margin-top: 0;
+      }
     }
   }
 
