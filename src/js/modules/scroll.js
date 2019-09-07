@@ -3,7 +3,8 @@ import { pubsub } from '../tools/utils'
 
 export default class Scroll {
   constructor () {
-    this.ps = new PerfectScrollbar('.content__scroll')
+    this.psBase = new PerfectScrollbar('.content__scroll')
+    this.psViewInstances = []
   }
 
   init () {
@@ -11,7 +12,31 @@ export default class Scroll {
   }
 
   bindEvents () {
-    pubsub.suscribe('psUpdate', () => this.ps.update())
+    pubsub.suscribe('ps:update', () => this.update())
+    pubsub.suscribe('ps:setup', container => this.setup(container))
+    pubsub.suscribe('ps:destroy', () => this.destroy())
+  }
+
+  update () {
+    this.psViewInstances.map(instance => {
+      instance.update()
+    })
+    this.psBase.update()
+  }
+
+  setup (container) {
+    this.psViewInstances.push(
+      new PerfectScrollbar(container)
+    )
+  }
+
+  destroy () {
+    this.psViewInstances.map(instance => {
+      instance.destroy()
+    })
+
+    this.instance = []
+  }
 
   resize () {
     this.update()
