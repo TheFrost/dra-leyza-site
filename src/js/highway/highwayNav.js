@@ -29,11 +29,12 @@ export default class HighwayNav {
 
   updateNavLinks ({ location }) {
     const { navLinks } = this.DOM
+    const locationBasePathname = `/${location.pathname.split('/').filter(piece => piece !== '')[0] || ''}`
 
     navLinks.map(link => {
       link.classList.remove('active')
 
-      if (link.href === location.href) {
+      if (link.pathname === locationBasePathname) {
         link.classList.add('active')
       }
     })
