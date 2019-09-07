@@ -1,0 +1,21 @@
+.textarea {
+  position: relative;
+
+  overflow: auto;
+
+  &__control {
+    width: 100%;
+
+    background: none;
+    border: none;
+    resize: none;
+  }
+}
+
+// only desktop
+body.desktop-device {
+  .textarea {
+    padding-right: 2rem;
+    overflow: hidden;
+  }
+}
