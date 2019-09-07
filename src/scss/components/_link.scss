@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
 
-  &:hover, &.active {
+  &.active {
     > span:before {
       transform: scale3d(1, 1, 1);
       transform-origin: left center;
@@ -48,5 +48,17 @@
     width: 20px;
     height: 20px;
     margin-top: 4px;
+  }
+}
+
+// only desktop device
+body.desktop-device {
+  .link {
+    &:hover {
+      > span:before {
+        transform: scale3d(1, 1, 1);
+        transform-origin: left center;
+      }
+    }
   }
 }
