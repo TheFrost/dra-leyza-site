@@ -1,5 +1,4 @@
 import PerfectScrollbar from 'perfect-scrollbar'
-import { debounce } from 'lodash'
 import { pubsub } from '../tools/utils'
 
 export default class Scroll {
@@ -14,8 +13,7 @@ export default class Scroll {
   bindEvents () {
     pubsub.suscribe('psUpdate', () => this.ps.update())
 
-    window.addEventListener('resize', debounce(
-      () => this.ps.update(), 100
-    ))
+  resize () {
+    this.update()
   }
 }

@@ -1,3 +1,4 @@
+import { debounce } from 'lodash'
 import { isSmartphone, isTablet, isDesktop } from './tools/utils'
 import HighwayNav from './highway/highwayNav'
 import BurgerMenu from './modules/burgerMenu'
@@ -52,3 +53,11 @@ const moduleCatalogSetup = {
 
 const moduleManager = new ModuleManager(moduleCatalogSetup)
 moduleManager.init()
+
+/**
+ * Bind events global control
+ */
+
+window.onresize = debounce(() => {
+  moduleManager.resizeHandler()
+}, 100)

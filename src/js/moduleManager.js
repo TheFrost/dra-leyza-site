@@ -31,4 +31,11 @@ export default class ModuleManager {
   disposeModules () {
     this.currentScopeModules.map(module => module.dispose ? module.dispose() : null)
   }
+
+  resizeHandler () {
+    const { general } = this.moduleCatalogSetup
+    const modules = [...general, ...this.currentScopeModules]
+
+    modules.map(module => module.resize ? module.resize() : null)
+  }
 }
