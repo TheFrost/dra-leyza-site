@@ -7,22 +7,16 @@
   border-top: 2px solid $c_second;
 
   &__copyright,
-  &__address {
+  .address {
     margin: 0;
   }
 
-  &__address {
+  .address {
     display: none;
   }
 
-  &__social {
+  .social {
     display: none;
-    justify-content: space-between;
-    align-items: center;
-
-    li:not(:last-child) {
-      margin-right: 2rem;
-    }
   }
 }
 
@@ -34,13 +28,13 @@ body.desktop-device {
     padding: 0.5rem 1rem;
     justify-content: space-between;
 
-    &__address {
+    .address {
       @media (min-width: $bp_ipad_landscape) {
-        display: block;
+        display: flex;
       }
     }
 
-    &__social {
+    .social {
       display: flex;
     }
   }

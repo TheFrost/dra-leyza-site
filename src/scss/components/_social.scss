@@ -1,0 +1,9 @@
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  li:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
