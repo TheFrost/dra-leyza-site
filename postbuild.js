@@ -145,7 +145,11 @@ fs.readdir(`./${baseDir}`, (err, files) => {
   const htaccessContent = `RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]`
+RewriteRule ^([^/]+)$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\\.html -f
+RewriteRule ^([^/]+)/([^/]+)$ $2.html [NC,L]
+ErrorDocument 404 /404.html`
 
   fs.appendFile(`${baseDir}/.htaccess`, htaccessContent, (err) => {
     if (err) throw err
