@@ -1,0 +1,21 @@
+.direct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &__phone {
+    position: relative;
+
+    a { display: block; }
+
+    &-icon {
+      position: absolute;
+      top: 5px;
+      left: -24px;
+    }
+  }
+
+  &__email {
+    margin-top: 0.3rem;
+  }
+}
