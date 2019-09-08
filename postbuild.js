@@ -140,4 +140,15 @@ fs.readdir(`./${baseDir}`, (err, files) => {
       })
     }
   )
+
+  // make .htaccess
+  const htaccessContent = `RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]`
+
+  fs.appendFile(`${baseDir}/.htaccess`, htaccessContent, (err) => {
+    if (err) throw err
+    console.log('.htaccess created')
+  })
 })
