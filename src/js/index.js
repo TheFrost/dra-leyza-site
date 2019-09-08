@@ -49,6 +49,14 @@ const moduleCatalogSetup = {
   services: [
     new Services(),
     new Grid()
+  ],
+
+  contact: [
+    // only desktop
+    ...isDesktop()
+      ? [
+        new Textarea()
+      ] : []
   ]
 }
 

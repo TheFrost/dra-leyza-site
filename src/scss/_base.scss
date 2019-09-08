@@ -35,3 +35,61 @@ a {
   
   color: currentColor;
 }
+
+input, button, textarea { outline: none }
+
+button {
+  position: relative;
+
+  padding: 0.6rem 2rem;
+
+  font-family: redRoseBold, Helvetica, sans-serif;
+  font-size: 1rem;
+
+  border: 1px solid $c_second;
+  background: none;
+  color: $c_second;
+
+  overflow: hidden;
+
+  &:hover {
+    color: $c_base;
+
+    &:before {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left center;
+    }
+  }
+
+  &:active {
+    transform: scale3d(1, 1, 1) translate3d(0, 2px, 0);
+  }
+
+  &:before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    display: block;
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+
+    background-color: $c_second;
+
+    transform: scale3d(0, 1, 1);
+    transform-origin: right center;
+    transition: transform 0.17s ease-in-out;
+  }
+
+  span {
+    position: relative;
+    z-index: 10;
+
+    color: currentColor;
+
+    transition: all 0.17s ease-in-out;
+  }
+}

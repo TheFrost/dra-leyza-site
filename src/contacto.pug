@@ -2,5 +2,47 @@
 extends pug/layout/layout
 
 block content
-  div.wrapper(data-router-view="contacto", data-module-scope="contact")
-    h1 Hello Contact!
+  div.wrapper.contact(data-router-view="contacto", data-module-scope="contact")
+    div.direct
+      div.direct__phone
+        svg(width="17" height="17").svg.direct__phone-icon
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#phone")
+        a.link(href="tel:8688134303") 
+          span (868) 813-4303
+        a.link(href="tel:8688134614") 
+          span (868) 813-4614
+      a.link(href="mailto:leyzanieto@hotmail.com").direct__email 
+        span leyzanieto@hotmail.com
+
+    form.form
+      div.form__container
+        div.form__control
+          label.form__label(for="name") Nombre
+          input.form__input.text(type="text" id="name" name="name" required)
+        div.form__control
+          label.form__label(for="email") Mail
+          input.form__input.text(type="email" id="email" name="email" required)
+        div.form__control
+          label.form__label(for="subject") Asunto
+          input.form__input.text(type="text" id="subject" name="subject" required)
+        div.form__control
+          label.form__label(for="message") Mensaje
+          div.textarea.form__input
+            textarea.textarea__control.text(id="message" name="message" rows='5' required data-min-rows="5")
+      footer.form__footer
+        button.form__submit(type="submit")
+          span Enviar
+    
+    div.contact__info
+      a.link.address(href="https://goo.gl/maps/onF7aHgSHLXuGh7T8", target="_blank", rel="noopener")
+        span Hospital CEMQ Calle Primera y González No. 1105 H. matamoros, Tam.
+      ul.social.u-list-nostyle
+        li
+          a.link(href="mailto:leyzanieto@hotmail.com", target="_blank", rel="noopener") 
+            span E-Mail
+        li
+          a.link(href="https://facebook.com", target="_blank", rel="noopener") 
+            span Facebook
+        li
+          a.link(href="https://instagram.com", target="_blank", rel="noopener") 
+            span instagram
