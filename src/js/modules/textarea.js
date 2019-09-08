@@ -36,6 +36,10 @@ export default class Textarea {
     })
   }
 
+  /**
+   * This method is based on the example of Yair Even Or from codepen
+   * demo: https://codepen.io/vsync/pen/frudD?editors=0010
+   */
   keyupHandler ({ currentTarget }) {
     const minRows = currentTarget.getAttribute('data-min-rows') | 0
     currentTarget.rows = minRows
