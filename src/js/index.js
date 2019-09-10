@@ -11,6 +11,7 @@ import ModuleManager from './moduleManager'
 import Controls from './modules/controls'
 import Grid from './modules/grid'
 import Textarea from './modules/textarea'
+import Contact from './viewsModules/contact'
 
 /**
  * Notify DOM device type
@@ -52,6 +53,8 @@ const moduleCatalogSetup = {
   ],
 
   contact: [
+    new Contact(),
+
     // only desktop
     ...isDesktop()
       ? [
