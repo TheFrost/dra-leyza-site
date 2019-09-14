@@ -37,6 +37,7 @@ a {
 }
 
 input, button, textarea { outline: none }
+input, textarea { padding: 0 }
 
 button {
   position: relative;
