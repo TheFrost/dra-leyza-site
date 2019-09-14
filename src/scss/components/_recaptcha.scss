@@ -1,0 +1,16 @@
+.grecaptcha {
+  &-politics {
+    text-align: left;
+
+    .link {
+      display: inline-flex;
+
+      font-family: redRoseBold, Helvetica, sans-serif;
+    }
+  }
+
+  &-badge {
+    visibility: hidden;
+    z-index: -1;
+  }
+}

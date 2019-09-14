@@ -32,6 +32,9 @@ export default class Contact {
 
   submitHandler (e) {
     console.log(e)
+    window.grecaptcha
+      .execute('6LdZb7gUAAAAABQfdkmDqM2MN9KMcI4ne58RAIyP', { action: 'contacto' })
+      .then(console.log)
   }
 
   dispose () {
