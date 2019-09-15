@@ -30,8 +30,19 @@ block content
           div.textarea.form__input
             textarea.textarea__control.text(id="message" name="message" rows='5' required data-min-rows="5")
       footer.form__footer
-        button.form__submit(type="submit")
-          span Enviar
+        div.form__message
+          p ¡Tu mensaje ha sido enviado con éxito!
+        div.form__actions
+          div.form__submit
+            button.form__submit-button(type="submit")
+              span.form__submit-label Enviar
+              span.form__submit-feedback
+                svg.svg.success
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#check")
+                svg.svg.error
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#times")
+            div.form__submit-loader
+              span
       p.grecaptcha-politics.text
         | Este sitio está protegido por reCAPTCHA y se aplica la 
         a.link(href="https://policies.google.com/privacy" target="_blank" rel="noreferrer")
