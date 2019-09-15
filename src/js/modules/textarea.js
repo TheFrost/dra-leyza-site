@@ -53,7 +53,7 @@ export default class Textarea {
     const { containers } = this.DOM
 
     containers.map(container => {
-      container.style.height = `${container.offsetHeight}px`
+      container.style.height = `${container.offsetHeight + 1}px`
     })
   }
 
