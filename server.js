@@ -4,6 +4,8 @@ const path = require('path')
 const fs = require('fs')
 const arg = process.argv[2] || '*'
 
+const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+
 let isFirstBuild = true
 
 const serverDir = './dist'
@@ -49,6 +51,11 @@ bundler.on('buildEnd', bundle => {
 
   isFirstBuild = false
 })
+
+// services
+app.post('/sent.php', (req, res) => setTimeout(() => {
+  res.json({ success: Math.random() > 0.5 })
+}, getRandom(1, 3) * 1000))
 
 app.use(bundler.middleware())
 app.listen(1234)
