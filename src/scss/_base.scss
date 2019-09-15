@@ -12,6 +12,23 @@ html, body {
   color: $c_second;
 
   overflow: hidden;
+
+  &.desktop-device {
+    button {
+      &:hover:not(.js-nohover) {
+        color: $c_base;
+    
+        &:before {
+          transform: scale3d(1, 1, 1);
+          transform-origin: left center;
+        }
+      }
+    
+      &:active {
+        transform: scale3d(1, 1, 1) translate3d(0, 2px, 0);
+      }
+    }
+  }
 }
 
 *, *:after, *:before {
@@ -42,8 +59,6 @@ input, textarea { padding: 0 }
 button {
   position: relative;
 
-  padding: 0.6rem 2rem;
-
   font-family: redRoseBold, Helvetica, sans-serif;
   font-size: 1rem;
 
@@ -52,19 +67,6 @@ button {
   color: $c_second;
 
   overflow: hidden;
-
-  &:hover {
-    color: $c_base;
-
-    &:before {
-      transform: scale3d(1, 1, 1);
-      transform-origin: left center;
-    }
-  }
-
-  &:active {
-    transform: scale3d(1, 1, 1) translate3d(0, 2px, 0);
-  }
 
   &:before {
     content: '';
@@ -85,9 +87,12 @@ button {
     transition: transform 0.17s ease-in-out;
   }
 
-  span {
+  > span {
     position: relative;
     z-index: 10;
+
+    display: block;
+    padding: 0.6rem 2rem;
 
     color: currentColor;
 
