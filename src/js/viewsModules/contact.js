@@ -59,7 +59,7 @@ export default class Contact {
   fetchSend (request) {
     return new Promise((resolve, reject) => window.grecaptcha
       .execute(
-        '6LdZb7gUAAAAABQfdkmDqM2MN9KMcI4ne58RAIyP',
+        '6LdFULcUAAAAAPNuqRWxPl-H2oaDZmJQ8SbZgAqd',
         { action: 'contacto' }
       )
       .then(token => window.fetch('sent.php', {
