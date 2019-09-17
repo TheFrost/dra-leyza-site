@@ -99,14 +99,17 @@
       right: 50%;
       z-index: 9;
 
+      width: 47px;
+      height: 47px;
+      margin-right: -23px;
+
       transform-origin: center;
       transform: scale3d(0, 0, 1);
 
       span {
         display: block;
-        width: 44px;
-        height: 44px;
-        margin-right: -22px;
+        width: 100%;
+        height: 100%;
 
         border-radius: 50%;
         border: 2px solid $c_second;
