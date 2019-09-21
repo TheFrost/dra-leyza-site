@@ -11,6 +11,7 @@ export default class Contact {
     }
     Contact.instance = this
 
+    this.isSending = false
     this.submitHandler = this.submitHandler.bind(this)
   }
 
@@ -38,8 +39,11 @@ export default class Contact {
 
   submitHandler (e) {
     e.preventDefault()
+    if (this.isSending) return
 
     const { form } = this.DOM
+
+    this.isSending = true
 
     this.triggerFeedback('sending')
 
@@ -110,6 +114,7 @@ export default class Contact {
       }, '-=0.5')
       .eventCallback('onComplete', () => {
         button.classList.remove('js-nohover')
+        this.isSending = false
       })
       .pause()
 
