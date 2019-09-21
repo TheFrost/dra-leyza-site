@@ -51,9 +51,11 @@ export default class Contact {
         return obj
       }, {})
 
-    this.fetchSend(request)
-      .then(() => this.triggerFeedback('success'))
-      .catch(() => this.triggerFeedback('error'))
+    window.setTimeout(() => {
+      this.fetchSend(request)
+        .then(() => this.triggerFeedback('success'))
+        .catch(() => this.triggerFeedback('error'))
+    }, 1800)
   }
 
   fetchSend (request) {
@@ -68,6 +70,7 @@ export default class Contact {
       }))
       .then(res => res.json())
       .then(res => res.success ? resolve() : reject(res))
+      .catch(err => reject(err))
     )
   }
 
@@ -77,15 +80,15 @@ export default class Contact {
     button.classList.add('js-nohover')
 
     const feedbackTimeline = new TimelineMax()
-      .to(loader, 0.3, {
+      .to(loader, 0.5, {
         scale: 0,
         ease: 'Expo.easeInOut'
       })
-      .to(button, 0.3, {
+      .to(button, 0.5, {
         scale: 1,
         ease: 'Expo.easeInOut'
       })
-      .to(message, 0.3, {
+      .to(message, 0.5, {
         y: '0%',
         ease: 'Expo.easeInOut'
       }, '-=0.3')
@@ -107,7 +110,7 @@ export default class Contact {
 
     const feedbackActions = {
       sending () {
-        const tl = new TimelineMax({ delay: 0.5 })
+        const tl = new TimelineMax()
           .to(button, 0.5, {
             scale: 0,
             ease: 'Expo.easeInOut'
