@@ -67,7 +67,10 @@ export default class Contact {
       .then(token => {
         window.fetch('sent.php', {
           method: 'POST',
-          body: { token, ...request }
+          body: JSON.stringify({ token, ...request }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
           .then(res => res.json())
           .then(res => res.success ? resolve() : reject(res))
