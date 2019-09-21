@@ -55,7 +55,7 @@ export default class Contact {
       this.fetchSend(request)
         .then(() => this.triggerFeedback('success'))
         .catch(() => this.triggerFeedback('error'))
-    }, 1800)
+    }, 1000)
   }
 
   fetchSend (request) {
@@ -64,13 +64,15 @@ export default class Contact {
         '6LdFULcUAAAAAPNuqRWxPl-H2oaDZmJQ8SbZgAqd',
         { action: 'contacto' }
       )
-      .then(token => window.fetch('sent.php', {
-        method: 'POST',
-        body: { token, ...request }
-      }))
-      .then(res => res.json())
-      .then(res => res.success ? resolve() : reject(res))
-      .catch(err => reject(err))
+      .then(token => {
+        window.fetch('sent.php', {
+          method: 'POST',
+          body: { token, ...request }
+        })
+          .then(res => res.json())
+          .then(res => res.success ? resolve() : reject(res))
+          .catch(err => reject(err))
+      })
     )
   }
 
