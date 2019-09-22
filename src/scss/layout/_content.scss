@@ -2,8 +2,6 @@
   position: relative;
   z-index: 8;
 
-  display: flex;
-  flex-direction: column;
   width: 100%;
 
   overflow: hidden;
@@ -26,6 +24,12 @@
     height: 100%;
 
     background-color: $c_second;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   &__scroll {

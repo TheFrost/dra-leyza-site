@@ -2,10 +2,14 @@
   position: relative;
   z-index: 10;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+  }
 
   &__logo {
     svg {
@@ -29,9 +33,12 @@ body.tablet-device,
 body.desktop-device {
 
   .header {
-    padding: 0.5rem 1rem;
-
     border-bottom: 2px solid $c_second;
+    background-color: $c_base;
+
+    &__inner {
+      padding: 0.5rem 1rem;
+    }
 
     &__logo {
       svg {

@@ -22,37 +22,38 @@ html(lang="es-MX")
     main.main
       include nav
 
-      div.content.bottom
+      div.content
         div.content__overlay
 
-        div.controls__area.top
-          p.controls__copy
-          a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
-            svg.svg
-              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
-            span Regresar
+        div.content__layout
+          div.controls__area.top
+            p.controls__copy
+            a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
+              svg.svg
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+              span Regresar
 
-        div.content__scroll
-          div.content__inner(data-router-wrapper)
-            block content
+          div.content__scroll
+            div.content__inner(data-router-wrapper)
+              block content
 
-        div.controls__area.bottom
-          p.controls__copy
-          a.link.left.controls__trigger.prev(href="#", data-type-action="prev", data-direction="left")
-            svg.svg
-              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
-            span Anterior
-          a.link.center.controls__trigger.togrid(href="#", data-type-action="togrid", data-direction="left")
-            svg.svg
-              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#grid")
-          a.link.right.controls__trigger.next(href="#", data-type-action="next")
-            span Siguiente
-            svg.svg
-              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right")
-          a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
-            svg.svg
-              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
-            span Regresar
+          div.controls__area.bottom
+            p.controls__copy
+            a.link.left.controls__trigger.prev(href="#", data-type-action="prev", data-direction="left")
+              svg.svg
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+              span Anterior
+            a.link.center.controls__trigger.togrid(href="#", data-type-action="togrid", data-direction="left")
+              svg.svg
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#grid")
+            a.link.right.controls__trigger.next(href="#", data-type-action="next")
+              span Siguiente
+              svg.svg
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right")
+            a.link.left.controls__trigger(href="#", data-type-action="back", data-direction="left")
+              svg.svg
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left")
+              span Regresar
 
     include footer
 
