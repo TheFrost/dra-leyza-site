@@ -3,9 +3,13 @@
   flex-wrap: wrap;
 
   &__item {
+    position: relative;
+
     flex-basis: 50%;
 
     border-top: 2px solid $c_second;
+
+    overflow: hidden;
 
     $offset: 64px + 41px + 41px; // header height + footer height + copy height
     min-height: calc((100vh - #{$offset}) / 6);
@@ -74,13 +78,28 @@
 
     border-top: 2px solid $c_second;
 
-    transition: all 0.17s ease-in-out;
-
     &-inner {
       display: block;
       padding: 0.5rem;
 
       text-align: center;
+    }
+
+    &.floated {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      border: none;
+      background-color: $c_second;
+
+      transform: translate3d(0, -100%, 0);
+
+      .grid__label-inner {
+        color: $c_base;
+      }
     }
   }
 }

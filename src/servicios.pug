@@ -9,6 +9,8 @@ block content
       each service in services
         li.grid__item
           a.grid__link(href=service.url)
+            span.grid__label.floated
+              span.grid__label-inner.text=service.label
             span.grid__icon
               svg.svg
                 use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=service.icon)
