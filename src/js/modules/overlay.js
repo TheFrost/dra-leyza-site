@@ -31,7 +31,7 @@ export default class Overlay {
   }
 
   bindEvents () {
-    pubsub.suscribe('overlayIn', (direction) => this.controlHandler('in', direction))
+    pubsub.suscribe('overlayIn', (direction = 'left') => this.controlHandler('in', direction))
     pubsub.suscribe('overlayOut', () => this.controlHandler('out'))
   }
 
