@@ -14,6 +14,7 @@ import Grid from './modules/grid'
 import Textarea from './modules/textarea'
 import Splash from './modules/splash'
 
+window.addEventListener('load', () => {
   /**
    * Notify DOM device type
    */
