@@ -1,4 +1,4 @@
-import { $ } from '../tools/utils'
+import { $, $$, pubsub } from '../tools/utils'
 import { TimelineMax, TweenMax } from 'gsap'
 
 export default class Contact {
@@ -23,6 +23,9 @@ export default class Contact {
   setupSelectors () {
     this.DOM = {
       form: $('.form'),
+      inputs: $$('.form input, .form textarea'),
+      inputsContainers: $$('.form__input'),
+      textarea: $('.form textarea'),
       button: $('.form__submit-button'),
       loader: $('.form__submit-loader'),
       feedback: $('.form__submit-feedback'),
@@ -84,9 +87,32 @@ export default class Contact {
   }
 
   triggerFeedback (state) {
-    const { button, loader, feedback, label, message } = this.DOM
+    const {
+      inputsContainers,
+      inputs,
+      textarea,
+      button,
+      loader,
+      feedback,
+      label,
+      message
+    } = this.DOM
 
     button.classList.add('js-nohover')
+
+    const cleanFormTimeline = new TimelineMax()
+      .to(inputs, 0.5, { y: 50 })
+      .to(inputsContainers, 0.3, { opacity: 0 }, '-=0.5')
+      .eventCallback('onComplete', () => {
+        inputs.map(input => (input.value = ''))
+        TweenMax.set(inputs, { y: 0 })
+        pubsub.publish('textarea:reset', textarea)
+
+        window.setTimeout(() => {
+          TweenMax.set(inputsContainers, { opacity: 1 })
+        }, 500)
+      })
+      .pause()
 
     const feedbackTimeline = new TimelineMax()
       .to(loader, 0.5, {
@@ -143,13 +169,13 @@ export default class Contact {
         feedback.classList.remove('error')
         feedback.classList.add('success')
         feedbackTimeline.play()
+        cleanFormTimeline.play()
       },
 
       error () {
         message.textContent = 'Ha ocurrido un error, intenta nuevamente por favor.'
         feedback.classList.remove('success')
         feedback.classList.add('error')
-
         feedbackTimeline.play()
       }
     }
