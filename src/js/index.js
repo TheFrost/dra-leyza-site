@@ -15,6 +15,7 @@ import Textarea from './modules/textarea'
 import Splash from './modules/splash'
 import EntryDesk from './modules/entry.desk'
 import EntryMob from './modules/entry.mob'
+import GridHover from './modules/grid.hover'
 
 window.addEventListener('load', () => {
   /**
@@ -61,7 +62,13 @@ window.addEventListener('load', () => {
 
     services: [
       new Services(),
-      new Grid()
+      new Grid(),
+
+      // only desktop
+      ...isDesktop()
+        ? [
+          new GridHover()
+        ] : []
     ],
 
     contact: [
