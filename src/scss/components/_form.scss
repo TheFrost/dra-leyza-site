@@ -42,6 +42,10 @@
     @media (min-width: $bp_ipad_landscape) {
       padding: 1rem;
     }
+
+    &-wrapper {
+      overflow: hidden;
+    }
   }
 
   &__footer {

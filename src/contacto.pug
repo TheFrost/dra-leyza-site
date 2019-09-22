@@ -18,17 +18,21 @@ block content
       div.form__container
         div.form__control
           label.form__label(for="name") Nombre
-          input.form__input.text(type="text" id="name" name="name" required)
+          div.form__input-wrapper
+            input.form__input.text(type="text" id="name" name="name" required)
         div.form__control
           label.form__label(for="email") Mail
-          input.form__input.text(type="email" id="email" name="email" required)
+          div.form__input-wrapper
+            input.form__input.text(type="email" id="email" name="email" required)
         div.form__control
           label.form__label(for="subject") Asunto
-          input.form__input.text(type="text" id="subject" name="subject" required)
+          div.form__input-wrapper
+            input.form__input.text(type="text" id="subject" name="subject" required)
         div.form__control
           label.form__label(for="message") Mensaje
-          div.textarea.form__input
-            textarea.textarea__control.text(id="message" name="message" rows='5' required data-min-rows="5")
+          div.form__input-wrapper
+            div.textarea.form__input
+              textarea.textarea__control.text(id="message" name="message" rows='5' required data-min-rows="5")
       footer.form__footer
         div.form__message
           p ¡Tu mensaje ha sido enviado con éxito!
