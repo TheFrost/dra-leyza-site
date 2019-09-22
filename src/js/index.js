@@ -13,6 +13,8 @@ import Controls from './modules/controls'
 import Grid from './modules/grid'
 import Textarea from './modules/textarea'
 import Splash from './modules/splash'
+import EntryDesk from './modules/entry.desk'
+import EntryMob from './modules/entry.mob'
 
 window.addEventListener('load', () => {
   /**
@@ -35,7 +37,14 @@ window.addEventListener('load', () => {
       // only smartphone
       ...isSmartphone()
         ? [
+          new EntryMob(),
           new BurgerMenu()
+        ] : [],
+
+      // only tablet and desktop
+      ...!isSmartphone()
+        ? [
+          new EntryDesk()
         ] : [],
 
       // only desktop
