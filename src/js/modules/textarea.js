@@ -11,6 +11,8 @@ export default class Textarea {
     Textarea.instance = this
 
     this.keyupHandler = this.keyupHandler.bind(this)
+
+    this.bindEvents()
   }
 
   init () {
@@ -28,6 +30,10 @@ export default class Textarea {
     }
   }
 
+  bindEvents () {
+    pubsub.suscribe('textarea:reset', this.resetInstance, this)
+  }
+
   dynamicBindEvents (action) {
     const { textareas } = this.DOM
 
@@ -36,17 +42,24 @@ export default class Textarea {
     })
   }
 
+  keyupHandler ({ currentTarget }) { this.changeHandler(currentTarget) }
+
   /**
    * This method is based on the example of Yair Even Or from codepen
    * demo: https://codepen.io/vsync/pen/frudD?editors=0010
    */
-  keyupHandler ({ currentTarget }) {
+  changeHandler (currentTarget) {
     const minRows = currentTarget.getAttribute('data-min-rows') | 0
     currentTarget.rows = minRows
 
     const { scrollHeight, baseScrollHeight } = currentTarget
     currentTarget.rows = minRows + Math.ceil((scrollHeight - baseScrollHeight) / 16)
     pubsub.publish('ps:update')
+  }
+
+  resetInstance (target) {
+    target.parentNode.scrollTop = 0
+    this.changeHandler(target)
   }
 
   setContainersSizes () {
